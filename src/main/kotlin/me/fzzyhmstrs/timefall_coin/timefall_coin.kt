@@ -47,7 +47,7 @@ object TC: ModInitializer {
 
     fun getChestChance(): Float {
         if (CHEST_CHANCE == null){
-            CHEST_CHANCE = readOrCreate { Config() }.chestLootChance
+            CHEST_CHANCE = readOrCreate( { Config() }, Config::class.java).chestLootChance
         }
         return (CHEST_CHANCE ?: 0.02f)
     }
@@ -79,7 +79,7 @@ object TC: ModInitializer {
             })
     }
 
-    private inline fun <reified T> readOrCreate(configClass: () -> T): T {
+    private fun <T> readOrCreate(configClass: () -> T, classType: Class<T>): T {
         val dir = FabricLoader.getInstance().configDir.toFile()
         if (!dir.exists() && !dir.mkdirs()) {
             println("Could not create directory, using default configs.")
@@ -88,7 +88,7 @@ object TC: ModInitializer {
         val f = File(dir, "timefall_coin_config.json")
         try {
             if (f.exists()) {
-                return gson.fromJson(f.readLines().joinToString(""), T::class.java)
+                return gson.fromJson(f.readLines().joinToString(""), classType)
             } else if (!f.createNewFile()) {
                 println("Failed to create default config file (timefall_coin_config.json), using default config.")
             } else {
