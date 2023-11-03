@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "timefall_coin",
+  "version": "${version}",
+  "name": "Timefall Coin",
+  "description": "Adds a Timefall Coin that is used by the spawn-area NPCs for special trades.",
+  "authors": [
+    "fzzyhmstrs"
+  ],
+  "contact": {
+  },
+  "icon": "assets/timefall_coin/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      {
+        "adapter": "kotlin",
+        "value": "me.fzzyhmstrs.timefall_coin.TC"
+      }
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.14.22",
+    "fabric": "*",
+    "fabric-key-binding-api-v1": "*",
+    "fabric-language-kotlin": ">=1.7.4+kotlin.1.6.21",
+    "minecraft": ">=1.20.1",
+    "java": ">=17"
+  }
+}
