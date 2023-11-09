@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "timefall_coin:coin_pile"
+    }
+  ],
+  "result": {
+    "item": "timefall_coin:coin",
+    "count": 4
+  }
+}
