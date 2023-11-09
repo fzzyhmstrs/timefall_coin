@@ -44,6 +44,7 @@ object TC: ModInitializer {
     var CHEST_CHANCE: Float? = null
 
     val TIMEFALL_COIN: Item = Registry.register(Registries.ITEM, Identifier(MOD_ID,"coin"), Item(FabricItemSettings()))
+    val TIMEFALL_COIN_PILE: Item = Registry.register(Registries.ITEM, Identifier(MOD_ID,"coin_pile"), Item(FabricItemSettings()))
 
     fun getChestChance(): Float {
         if (CHEST_CHANCE == null){
@@ -76,6 +77,7 @@ object TC: ModInitializer {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL)
             .register(ItemGroupEvents.ModifyEntries { entries: FabricItemGroupEntries ->
                 entries.add(ItemStack(TIMEFALL_COIN))
+                entries.add(ItemStack(TIMEFALL_COIN_PILE))
             })
     }
 
