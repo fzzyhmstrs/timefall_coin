@@ -60,7 +60,7 @@ object TC: ModInitializer {
         }
 
         LootTableEvents.MODIFY.register{_,_,id,tableBuilder,_->
-            if (id.path.contains("chests") || id.path.contains("chest")) {
+            if (id.path.startsWith("chests")) {
                 val poolBuilder = LootPool.builder()
                     .rolls(ConstantLootNumberProvider.create(1.0F))
                     .conditionally(RandomChanceLootCondition.builder(getChestChance()))
